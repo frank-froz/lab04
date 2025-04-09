@@ -1,30 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Recetas</title>
+    <title>Recetas en {{ categoria.nombre }}</title>
 </head>
 <body>
-    <h1>Lista de Recetas</h1>
+    <h1>Recetas en "{{ categoria.nombre }}"</h1>
     {% for receta in recetas %}
         <div>
             <h2><a href="{% url 'detalle_receta' receta.id %}">{{ receta.titulo }}</a></h2>
             {% if receta.imagen %}
                 <img src="{{ receta.imagen.url }}" alt="{{ receta.titulo }}" width="200">
             {% endif %}
-            <p>Categoría: {{ receta.categoria }}</p>
             <p>Tiempo: {{ receta.tiempo_preparacion }} minutos</p>
         </div>
         <hr>
     {% empty %}
-        <p>No hay recetas disponibles.</p>
+        <p>No hay recetas en esta categoría.</p>
     {% endfor %}
-    <h2>Categorías</h2>
-        <ul>
-            {% for categoria in categorias %}
-                <li><a href="{% url 'recetas_por_categoria' categoria.id %}">{{ categoria.nombre }}</a></li>
-            {% endfor %}
-        </ul>
-
-    
+    <p><a href="{% url 'lista_recetas' %}">← Volver al inicio</a></p>
 </body>
 </html>

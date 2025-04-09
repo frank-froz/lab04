@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Categorías</title>
+</head>
+<body>
+    <h1>Categorías</h1>
+    <ul>
+        {% for categoria in categorias %}
+            <li><a href="{% url 'recetas_por_categoria' categoria.id %}">{{ categoria.nombre }}</a></li>
+        {% endfor %}
+    </ul>
+    <p><a href="{% url 'lista_recetas' %}">← Volver al inicio</a></p>
+</body>
+</html>

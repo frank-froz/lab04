@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Eliminar {{ receta.titulo }}</title>
+</head>
+<body>
+    <h1>¿Estás seguro que deseas eliminar esta receta?</h1>
+    <p><strong>{{ receta.titulo }}</strong></p>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Sí, eliminar</button>
+        <a href="{% url 'detalle_receta' receta.id %}">Cancelar</a>
+    </form>
+</body>
+</html>

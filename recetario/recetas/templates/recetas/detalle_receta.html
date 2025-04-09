@@ -15,5 +15,10 @@
     <h2>Instrucciones</h2>
     <p>{{ receta.instrucciones }}</p>
     <p><a href="{% url 'lista_recetas' %}">← Volver a la lista</a></p>
+    <p>
+        <a href="{% url 'editar_receta' receta.id %}">✏️ Editar</a> |
+        <a href="{% url 'eliminar_receta' receta.id %}">🗑️ Eliminar</a>
+    </p>
+    
 </body>
 </html>
