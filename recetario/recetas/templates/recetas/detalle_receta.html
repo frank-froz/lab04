@@ -5,7 +5,7 @@
 {% block content %}
     <h1>{{ receta.titulo }}</h1>
     {% if receta.imagen %}
-        <img src="{{ receta.imagen.url }}" alt="{{ receta.titulo }}" width="400">
+        <img src="{{ receta.imagen.url }}" alt="{{ receta.titulo }}" width="600">
     {% endif %}
     <p><strong>Categoría:</strong> {{ receta.categoria }}</p>
     <p><strong>Tiempo de preparación:</strong> {{ receta.tiempo_preparacion }} minutos</p>
@@ -15,7 +15,7 @@
     <p>{{ receta.instrucciones }}</p>
     <p><a href="{% url 'lista_recetas' %}">← Volver a la lista</a></p>
     <p>
-        <a href="{% url 'editar_receta' receta.id %}">✏️ Editar</a> |
-        <a href="{% url 'eliminar_receta' receta.id %}">🗑️ Eliminar</a>
+        <a href="{% url 'editar_receta' receta.id %}"> Editar</a> |
+        <a href="{% url 'eliminar_receta' receta.id %}"> Eliminar</a>
     </p>
     {% endblock %}
