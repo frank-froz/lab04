@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recetas</title>
+</head>
+<body>
+    <h1>Lista de Recetas</h1>
+    {% for receta in recetas %}
+        <div>
+            <h2><a href="{% url 'detalle_receta' receta.id %}">{{ receta.titulo }}</a></h2>
+            {% if receta.imagen %}
+                <img src="{{ receta.imagen.url }}" alt="{{ receta.titulo }}" width="200">
+            {% endif %}
+            <p>Categoría: {{ receta.categoria }}</p>
+            <p>Tiempo: {{ receta.tiempo_preparacion }} minutos</p>
+        </div>
+        <hr>
+    {% empty %}
+        <p>No hay recetas disponibles.</p>
+    {% endfor %}
+</body>
+</html>
