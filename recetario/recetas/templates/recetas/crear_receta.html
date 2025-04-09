@@ -1,15 +1,38 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Nueva Receta</title>
-</head>
-<body>
-    <h1>Crear Nueva Receta</h1>
-    <form method="POST" enctype="multipart/form-data">
+{% extends 'recetas/base.html' %}
+
+{% block title %}Crear Nueva Receta{% endblock %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">Crear Nueva Receta</h1>
+    <form method="POST" enctype="multipart/form-data" class="bg-light p-4 rounded shadow">
         {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Guardar</button>
+        <div class="form-group">
+            <label for="id_titulo">Título</label>
+            {{ form.titulo }}
+        </div>
+        <div class="form-group">
+            <label for="id_ingredientes">Ingredientes</label>
+            {{ form.ingredientes }}
+        </div>
+        <div class="form-group">
+            <label for="id_instrucciones">Instrucciones</label>
+            {{ form.instrucciones }}
+        </div>
+        <div class="form-group">
+            <label for="id_tiempo_preparacion">Tiempo de Preparación (minutos)</label>
+            {{ form.tiempo_preparacion }}
+        </div>
+        <div class="form-group">
+            <label for="id_imagen">Imagen (opcional)</label>
+            {{ form.imagen }}
+        </div>
+        <div class="form-group">
+            <label for="id_categoria">Categoría</label>
+            {{ form.categoria }}
+        </div>
+        <button type="submit" class="btn btn-success btn-block">Guardar Receta</button>
     </form>
-    <p><a href="{% url 'lista_recetas' %}">← Volver a la lista</a></p>
-</body>
-</html>
+    <p class="text-center mt-3"><a href="{% url 'lista_recetas' %}">← Volver a la lista</a></p>
+</div>
+{% endblock %}

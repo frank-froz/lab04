@@ -1,10 +1,16 @@
 {% extends 'recetas/base.html' %}
 
-{% block title %}Lista de Recetas{% endblock %}
+{% block title %}Buscar Recetas{% endblock %}
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">Recetas Disponibles</h1>
+    <h1 class="text-center mb-4">Buscar Recetas</h1>
+    <form method="get" action="{% url 'buscar_recetas' %}" class="form-inline justify-content-center mb-4">
+        <input type="text" name="q" value="{{ query }}" class="form-control mr-2" placeholder="Buscar por título" />
+        <button type="submit" class="btn btn-primary">Buscar</button>
+    </form>
+
+    <h2>Resultados</h2>
     <div class="row">
         {% for receta in recetas %}
             <div class="col-md-4 mb-4">
@@ -20,7 +26,7 @@
                 </div>
             </div>
         {% empty %}
-            <p class="text-center">No hay recetas disponibles.</p>
+            <p class="text-center">No se encontraron recetas.</p>
         {% endfor %}
     </div>
 </div>

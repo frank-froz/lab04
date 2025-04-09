@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Categorías</title>
-</head>
-<body>
+{% extends 'recetas/base.html' %}
+
+{% block title %}Crear Nueva Receta{% endblock %}
+
+{% block content %}
     <h1>Categorías</h1>
     <ul>
         {% for categoria in categorias %}
@@ -11,5 +10,4 @@
         {% endfor %}
     </ul>
     <p><a href="{% url 'lista_recetas' %}">← Volver al inicio</a></p>
-</body>
-</html>
+    {% endblock %}

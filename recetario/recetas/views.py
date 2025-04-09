@@ -60,3 +60,8 @@ def recetas_por_categoria(request, categoria_id):
 def lista_categorias(request):
     categorias = Categoria.objects.all()
     return render(request, 'recetas/lista_categorias.html', {'categorias': categorias})
+
+def buscar_recetas(request):
+    query = request.GET.get('q', '')
+    recetas = Receta.objects.filter(titulo__icontains=query) if query else Receta.objects.all()
+    return render(request, 'recetas/buscar_recetas.html', {'recetas': recetas, 'query': query})

@@ -1,9 +1,8 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>{{ receta.titulo }}</title>
-</head>
-<body>
+{% extends 'recetas/base.html' %}
+
+{% block title %}Crear Nueva Receta{% endblock %}
+
+{% block content %}
     <h1>{{ receta.titulo }}</h1>
     {% if receta.imagen %}
         <img src="{{ receta.imagen.url }}" alt="{{ receta.titulo }}" width="400">
@@ -19,6 +18,4 @@
         <a href="{% url 'editar_receta' receta.id %}">✏️ Editar</a> |
         <a href="{% url 'eliminar_receta' receta.id %}">🗑️ Eliminar</a>
     </p>
-    
-</body>
-</html>
+    {% endblock %}
