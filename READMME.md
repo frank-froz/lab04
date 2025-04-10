@@ -29,7 +29,7 @@ Clonación del Repositorio
 Clona el repositorio a tu máquina local:
 
 
-git clone https://github.com/usuario/recetario-django.git
+git clone https://github.com/frank-froz/lab04
 Entra al directorio del proyecto:
 
 
